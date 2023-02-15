@@ -1,41 +1,31 @@
-FROM node:alpine as babu1
+# FROM node:alpine as build1
 
-WORKDIR /app/app1
+# WORKDIR /app/app1
 
-COPY web_app/package.json /app/app1
+# COPY web_app/package.json /app/app1
 
-RUN npm install
+# RUN npm install
 
-COPY . /app/app1
+# COPY . /app/app1
 
-RUN npm run build
-
-FROM node:alpine as babu2
-
-WORKDIR /app/app2
-
-COPY mobile_app/package.json /app/app2
-
-RUN npm install
-
-COPY . /app/app2
-
-RUN npm run build
+# RUN npm run build
 
 
-# FROM nginx:alpine
-
-# COPY --from=babu1 app/app1/build /usr/share/nginx/html/app1
-
-# COPY --from=babu2 app/app2/build /usr/share/nginx/html/app2 
-
-# RUN rm /etc/nginx/conf.d/default.conf
-
-# COPY nginx/default.conf /etc/nginx/conf.d/
 
 
-# COPY ./ssl /etc/nginx/ssl/
+# # FROM nginx:alpine
 
-# EXPOSE 443
+# # COPY --from=babu1 app/app1/build /usr/share/nginx/html/app1
 
-# ENTRYPOINT [ "nginx","-g","daemon off;" ]
+# # COPY --from=babu2 app/app2/build /usr/share/nginx/html/app2 
+
+# # RUN rm /etc/nginx/conf.d/default.conf
+
+# # COPY nginx/default.conf /etc/nginx/conf.d/
+
+
+# # COPY ./ssl /etc/nginx/ssl/
+
+# # EXPOSE 443
+
+# # ENTRYPOINT [ "nginx","-g","daemon off;" ]

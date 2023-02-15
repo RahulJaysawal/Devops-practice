@@ -1,0 +1,11 @@
+# FROM node:alpine as build2
+
+# WORKDIR /app/app2
+
+# COPY mobile_app/package.json /app/app2
+
+# RUN npm install
+
+# COPY . /app/app2
+
+# RUN npm run build

@@ -1,24 +1,24 @@
-FROM node:alpine as Rahul
+# FROM node:alpine as Rahul
 
-WORKDIR /app
+# WORKDIR /app
 
-COPY ./package.json /app
+# COPY ./package.json /app
 
-RUN npm install
+# RUN npm install
 
-COPY . /app
+# COPY . /app
 
-# CMD ["npm","start"]
-RUN npm run build
+# # CMD ["npm","start"]
+# RUN npm run build
 
 
 
-FROM nginx:alpine
+# FROM nginx:alpine
 
-WORKDIR /usr/share/nginx/html
+# WORKDIR /usr/share/nginx/html
 
-RUN rm -rf ./*
+# RUN rm -rf ./*
 
-COPY --from=Rahul /app/build .
+# COPY --from=Rahul /app/build .
 
-ENTRYPOINT [ "nginx","-g","daemon off;" ]
+# ENTRYPOINT [ "nginx","-g","daemon off;" ]
